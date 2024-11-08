@@ -3,11 +3,13 @@ import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Input, Select } from "@material-tailwind/react";
-import { useState } from "react";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function Dashboard({ onSearch }) {
 
-  const [theme, setTheme] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
+  console.log(theme)
 
   return (
     <div className="my-2 w-full">
@@ -31,8 +33,8 @@ export default function Dashboard({ onSearch }) {
             <Select.Option>Incomplete</Select.Option>
           </Select.List>
         </Select>
-        <Button size="lg" className="w-[10%]" onClick={ () => setTheme(!theme)}>
-            <FontAwesomeIcon icon={theme ? faMoon : faSun} />
+        <Button size="lg" className="w-[10%]" onClick={toggleTheme}>
+            <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} />
         </Button>
       </div>
     </div>
