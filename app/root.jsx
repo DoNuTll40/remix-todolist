@@ -1,5 +1,6 @@
 
 import stylesheet from "./tailwind.css?url";
+import fontAwesomeStyles from "@fortawesome/fontawesome-svg-core/styles.css"; 
 import {
   Links,
   LiveReload,
@@ -14,6 +15,7 @@ export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
   { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Noto+Sans+Thai+Looped:wght@100;200;300;400;500;600;700;800;900&display=swap" },
+  { rel: "stylesheet", href: fontAwesomeStyles },
 ];
 
 export default function App() {
@@ -25,7 +27,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="font-ibm-thai">
         <Outlet />
         <ScrollRestoration />
         <Scripts />

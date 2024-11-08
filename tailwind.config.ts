@@ -8,10 +8,14 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ["IBM Plex Sans Thai Looped", "serif"],
+      'ibm-thai': ["IBM Plex Sans Thai Looped", "sans-serif"],
       'noto-thai': ["Noto Sans Thai Looped", "sans-serif"],
     },
   },
-  plugins: [mtConfig],
+  plugins: [mtConfig({
+    fonts: {
+      sans: "IBM Plex Sans Thai Looped"
+    }
+  })],
 } satisfies Config;
 

@@ -7,7 +7,8 @@ export default function TodoItem({ job }) {
     const [editValue, setEditedValue] = useState(job.todo);
 
   return (
-    <div>
+    <div className="flex gap-2">
+        <input type="checkbox" name="" id="" />
         <p>{editValue}</p>
     </div>
   )
