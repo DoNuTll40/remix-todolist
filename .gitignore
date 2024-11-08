@@ -1,4 +1,6 @@
 node_modules
+
+.gitgnore
 /.cache
 /build
 /public/build
