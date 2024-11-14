@@ -12,10 +12,12 @@ export default function TodoContainer({ todos }) {
     )
   }
 
+  const length = todos.length;
+
   return (
-    <div>
-      {todos.map((el) => (
-        <TodoItem key={el.id} job={el} />
+    <div className="px-3 flex flex-col gap-4 pt-3">
+      {todos.map((el, index) => (
+        <TodoItem key={el.id} job={el} status={el.completed} count={index + 1} length={length} />
       ))}
     </div>
   );

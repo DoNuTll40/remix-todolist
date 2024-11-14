@@ -20,9 +20,6 @@ module.exports = {
     es6: true,
     node: true,
   },
-  globals: {
-    process: 'readonly',
-  },
 
   // Base config
   extends: ["eslint:recommended"],

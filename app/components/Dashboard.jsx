@@ -5,17 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Input, Select } from "@material-tailwind/react";
 import { useTheme } from "../contexts/ThemeContext";
 
-export default function Dashboard({ onSearch }) {
+export default function Dashboard({ onSearch, setAction, action }) {
 
   const { theme, toggleTheme } = useTheme();
-
-  console.log(theme)
 
   return (
     <div className="my-2 w-full">
       <h1 className="font-semibold text-xl text-center my-2">TODO LIST</h1>
       <div className="flex mt-2 gap-2">
-        <Input size="md" className="w-7/12">
+        <Input size="md" className="w-8/12">
           <Input.Field
             type="text"
             placeholder="Search..."
@@ -25,15 +23,15 @@ export default function Dashboard({ onSearch }) {
             <FontAwesomeIcon icon={faSearch} />
           </Input.Icon>
         </Input>
-        <Select size="lg">
-          <Select.Trigger className="w-[22%]" placeholder="All" />
+        <Select size="lg" value={action} onValueChange={ (e) => setAction(e)}>
+          <Select.Trigger className="w-3/12" placeholder="All" />
           <Select.List>
-            <Select.Option defaultChecked >All</Select.Option>
-            <Select.Option>Complete</Select.Option>
-            <Select.Option>Incomplete</Select.Option>
+            <Select.Option defaultValue defaultChecked value="" >All</Select.Option>
+            <Select.Option value="true">Complete</Select.Option>
+            <Select.Option value="false">Incomplete</Select.Option>
           </Select.List>
         </Select>
-        <Button size="lg" className="w-[10%]" onClick={toggleTheme}>
+        <Button size="lg" className="w-1/12" onClick={toggleTheme}>
             <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} />
         </Button>
       </div>
