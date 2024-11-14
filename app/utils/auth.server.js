@@ -15,9 +15,9 @@ export async function requireUserSession(request) {
   // สามารถเพิ่มการตรวจสอบ token ที่นี่ (เช่น ตรวจสอบกับ API)
   const response = await axios.get("/auth/verify", {
     withCredentials: true,
-    // headers: {
-    //   Authorization: `Bearer ${token}`, // ส่ง token ไปตรวจสอบกับ API
-    // },
+    headers: {
+      Authorization: `Bearer ${token}`, // ส่ง token ไปตรวจสอบกับ API
+    },
   });
 
   if (response.status !== 200) {
